@@ -18,6 +18,10 @@ config = {
 def create_connection():
     try:
         connection = mysql.connector.connect(**config)
+        cursor = connection.cursor()
+        cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
+        cursor.close()
+        connection.close()
         if connection.is_connected():
             print("Database 'alx_book_store' created successfully!")
             return connection
