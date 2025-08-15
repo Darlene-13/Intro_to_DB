@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS alx_book_store;
 USE alx_book_store;
 
 --- CREATE TABLES FOR ALX BOOK STORE MANAGEMENT SYSTEM
-CREATE TABLE books (
+CREATE TABLE Books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
@@ -16,13 +16,13 @@ CREATE TABLE books (
     available_copies INT DEFAULT 0
 );
 
-CREATE TABLE authors (
+CREATE TABLE Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     author_name VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL
 );
 
-CREATE TABLE customers (
+CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_name VARCHAR(215) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE customers (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE orders (
+CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
     order_date DATE DEFAULT (CURRENT_DATE),
@@ -42,7 +42,7 @@ CREATE TABLE orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
-CREATE TABLE order_details (
+CREATE TABLE Order_Details (
     order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
     book_id INT NOT NULL,
