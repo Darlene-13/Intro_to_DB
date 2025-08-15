@@ -24,10 +24,11 @@ CREATE TABLE Authors (
 
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(215) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    address VARCHAR(255),
+    email VARCHAR(215) UNIQUE NOT NULL,
+    address TEXT(255) NOT NULL,
     phone_number VARCHAR(15),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
